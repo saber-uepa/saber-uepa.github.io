@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SABER — Conhecer para escolher</title>
+<meta name="description" content="Informação para escolher. Cuidado para decidir. Conheça os métodos contraceptivos disponíveis no SUS, entenda como funcionam e descubra quais dúvidas levar à sua próxima consulta.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SABER">
+<meta property="og:title" content="SABER — Conhecer para escolher">
+<meta property="og:description" content="Informação para escolher. Cuidado para decidir. Conheça os métodos contraceptivos disponíveis no SUS, entenda como funcionam e descubra quais dúvidas levar à sua próxima consulta.">
+<meta property="og:url" content="https://saber-uepa.github.io/">
+<meta property="og:image" content="https://saber-uepa.github.io/og-saber.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="pt_BR">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root{--petroleo:#0f5c6e;--petroleo2:#0b4554;--rosa:#f28fad;--rosa2:#c9406b;--rosaclaro:#fde4ec;--azul:#a9d6e5;--azulclaro:#e8f4f8;--texto:#24343a;}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{font-family:'Nunito',system-ui,sans-serif;color:var(--texto);background:#fffaf8;font-size:18px;line-height:1.65;overflow-x:hidden}
+img{max-width:100%}
+.stage{position:relative;width:100%;overflow:hidden;
+ background:radial-gradient(ellipse 120% 40rem at 15% 0%,#fde4ec 0%,rgba(253,228,236,0) 70%),radial-gradient(ellipse 100% 40rem at 90% 55%,#e3f2f7 0%,rgba(227,242,247,0) 70%),#fffaf8;}
+.river{display:none;position:absolute;left:0;top:28rem;width:min(70vw,560px);mix-blend-mode:multiply;opacity:.45;pointer-events:none;z-index:0;-webkit-mask-image:linear-gradient(to top,transparent,#000 30%,#000 60%,transparent),linear-gradient(to right,#000 60%,transparent);-webkit-mask-composite:source-in;mask-image:linear-gradient(to top,transparent,#000 30%,#000 60%,transparent),linear-gradient(to right,#000 60%,transparent);mask-composite:intersect}
+/* blocos empilhados */
+.screen{position:relative;z-index:1;display:flex;justify-content:center;padding:56px 22px}
+.screen+.screen{border-top:2px solid rgba(15,92,110,.06)}
+section[id]{scroll-margin-top:12px}
+/* boas-vindas: logo */
+#s1{flex-direction:column;align-items:center;text-align:center;padding-top:36px;padding-bottom:24px}
+#s1 .logo{display:block;width:100%;max-width:min(100%,1100px);height:auto;border-radius:24px;filter:drop-shadow(0 6px 18px rgba(15,92,110,.08))}
+/* conheça a Lia */
+#s3 .wrap{max-width:1000px;margin:0 auto;grid-template-columns:48% 1fr;grid-template-rows:1fr auto auto auto 1fr auto;column-gap:12px;row-gap:0;align-items:center}
+#s3 .wrap>div:last-child{display:contents}
+#s3 .liacard{grid-column:1;grid-row:1/6;align-self:center;justify-self:stretch;width:100%}
+#s3 .liacard::before{width:110%;max-width:none}
+#s3 .liacard img{width:100%;height:auto;max-width:100%;max-height:none}
+#s3 .script{grid-column:2;grid-row:2}
+#s3 .sub{grid-column:2;grid-row:3}
+#s3 .lead{grid-column:2;grid-row:4;margin-bottom:0}
+#s3 .steps{grid-column:1/-1;grid-row:6;margin-top:24px}
+@media (max-width:599px){#s3 .wrap{display:flex;flex-direction:column;align-items:stretch;gap:0} #s3 .liacard{margin-bottom:24px} #s3 .liacard img.lia-nova{max-height:62vh;object-fit:cover;object-position:center top} #s3 .lead{margin-bottom:16px} #s3 .steps{margin-top:16px}}
+@media (min-width:600px){
+ #s3.screen{padding-top:40px;padding-bottom:0}
+ #s3 .wrap{grid-template-rows:auto;column-gap:2rem;grid-template-columns:calc(45% - 1rem) calc(55% - 1rem)}
+ #s3 .wrap>div:last-child{display:block;grid-column:2;grid-row:1;max-width:34rem;padding-bottom:40px;align-self:center}
+ #s3 .liacard{grid-column:1;grid-row:1;align-self:end}
+ #s3 .lead{margin-bottom:18px}
+ #s3 .steps{margin-top:6px}
+}
+#s1+.screen{border-top:0;padding-top:16px}
+/* grade comum */
+.wrap{width:100%;max-width:1100px;display:grid;grid-template-columns:1fr;gap:32px;align-items:center}
+#s2 .wrap{max-width:760px}
+.kicker{font-size:15px;font-weight:900;letter-spacing:.12em;text-transform:uppercase;color:var(--rosa2);margin-bottom:10px}
+h1{font-weight:900;color:var(--petroleo);font-size:clamp(34px,5vw,54px);line-height:1.1;margin-bottom:20px}
+.lead{font-size:clamp(18px,1.4vw,20px);line-height:1.7;margin-bottom:18px}
+.aviso{background:var(--azulclaro);border-left:6px solid var(--petroleo);border-radius:16px;padding:18px 20px;font-size:clamp(17px,1.2vw,18px);line-height:1.6;color:var(--petroleo2);margin-top:8px}
+.aviso b{color:var(--petroleo)}
+/* Lia */
+.liacard{position:relative;justify-self:center;display:flex;justify-content:center;align-items:flex-end}
+.liacard::before{content:'';position:absolute;left:50%;top:52%;width:min(84vw,420px);aspect-ratio:1;transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(circle,#fde4ec 0%,#e3f2f7 70%,rgba(227,242,247,0) 72%);z-index:0}
+.liacard img{position:relative;z-index:1;display:block;width:min(70vw,300px);height:auto;filter:drop-shadow(0 14px 22px rgba(15,92,110,.18))}
+.script{font-family:'Caveat',cursive;font-weight:700;color:var(--petroleo);font-size:clamp(46px,7vw,74px);line-height:1}
+.script em{font-style:normal;color:var(--rosa2)}
+.lia-oi{font-family:'Nunito',system-ui,sans-serif;font-weight:900;font-size:clamp(34px,5vw,50px);line-height:1.15;letter-spacing:-.01em;margin-bottom:16px}
+.lia-tag{font-weight:900;color:var(--petroleo);font-size:clamp(20px,2vw,24px);line-height:1.3;margin:0 0 18px;padding-bottom:14px;background:linear-gradient(var(--rosa2),var(--rosa2)) left bottom/90px 4px no-repeat}
+.lia-frase{font-weight:800;color:var(--rosa2);font-size:clamp(17px,1.4vw,19px);line-height:1.5;margin:4px 0 8px}
+#s3 .liacard::before{display:none}
+#s3 .liacard img.lia-nova{border-radius:28px;filter:none;box-shadow:0 12px 30px rgba(15,92,110,.15)}
+@media (min-width:600px){#s3.screen{padding-bottom:48px} #s3 .liacard{align-self:center}}
+.sub{font-weight:800;color:var(--rosa2);font-size:clamp(18px,1.4vw,20px);line-height:1.4;margin:8px 0 18px}
+.steps{display:flex;flex-direction:column;gap:14px;margin-top:6px}
+.step{display:flex;gap:16px;align-items:flex-start;background:#fff;border-radius:18px;padding:16px 18px;box-shadow:0 5px 16px rgba(15,92,110,.07)}
+.num{flex:0 0 40px;height:40px;border-radius:50%;background:var(--petroleo);color:#fff;font-weight:900;font-size:18px;display:grid;place-items:center}
+.step h4{font-size:clamp(18px,1.3vw,19px);font-weight:900;color:var(--petroleo);line-height:1.3;margin-bottom:4px}
+.step p{font-size:clamp(17px,1.2vw,18px);color:#3f5258;line-height:1.55}
+.x-stepslead{font-size:clamp(17px,1.2vw,18px);font-weight:900;color:var(--petroleo);line-height:1.3;margin-bottom:-4px}
+/* antes de começar */
+#s4 .wrap4{width:100%;max-width:1100px;display:grid;grid-template-columns:1fr;gap:28px;align-items:center}
+#s4 .txt{position:relative;z-index:2}
+#s4 .fala{background:#fff;border-radius:28px 28px 6px 28px;padding:24px 22px;box-shadow:0 14px 34px rgba(15,92,110,.12)}
+#s4 .fala p{font-size:clamp(18px,1.3vw,19px);line-height:1.65;margin-bottom:14px}
+#s4 .fala p:last-child{margin-bottom:0}
+#s4 ul{list-style:none;margin:4px 0 16px;display:flex;flex-direction:column;gap:12px}
+#s4 li{font-size:clamp(18px,1.3vw,19px);line-height:1.55;padding-left:28px;position:relative}
+#s4 li::before{content:'';position:absolute;left:4px;top:.55em;width:11px;height:11px;border-radius:50%;background:var(--rosa)}
+#s4 .liah4{order:-1;justify-self:center;width:min(70vw,300px);height:auto;display:block;filter:drop-shadow(0 10px 24px rgba(15,92,110,.15))}
+/* métodos do SUS */
+#s5 .wrap5{width:100%;max-width:760px}
+.metodos{list-style:none;display:flex;flex-direction:column;gap:12px;margin-top:8px}
+.metodo{display:flex;align-items:center;gap:16px;min-height:64px;background:#fff;border:2px solid transparent;border-radius:18px;padding:14px 18px;box-shadow:0 5px 16px rgba(15,92,110,.07);color:var(--texto)}
+.metodo .nome{flex:1;font-size:clamp(18px,1.4vw,20px);font-weight:800;color:var(--petroleo);line-height:1.35}
+.metodo .nome small{display:block;font-size:17px;font-weight:600;color:#3f5258}
+.metodo .nome a{color:var(--petroleo);text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:4px}
+.metodo .nome a:hover{color:var(--rosa2)}
+.metodo.ativo{border-color:var(--petroleo)}
+.tag{flex:0 0 auto;font-size:14px;font-weight:900;letter-spacing:.04em;text-transform:uppercase;border-radius:999px;padding:5px 12px;background:var(--azulclaro);color:var(--petroleo)}
+.tag.irr{background:var(--rosaclaro);color:#9c2a50}
+.emerg-sep{display:flex;align-items:center;gap:12px;margin:32px 0 12px;font-size:15px;font-weight:900;letter-spacing:.12em;text-transform:uppercase;color:var(--rosa2)}
+.emerg-sep::before,.emerg-sep::after{content:'';flex:1;height:2px;background:#f6c9d7;border-radius:2px}
+.metodo.emerg{background:var(--rosaclaro);box-shadow:none;border:2px dashed var(--rosa)}
+.metodo.emerg .num{background:var(--rosa2);color:#fff}
+.metodo.emerg .nome{color:#7a2d47}
+.metodo.emerg .nome small{color:#7a2d47}
+/* preservativos */
+#s6 .wrap6{width:100%;max-width:1100px;display:grid;grid-template-columns:1fr;gap:28px;align-items:start}
+#s6 .liah6{display:block;width:min(92vw,460px);height:auto;justify-self:center;filter:drop-shadow(0 12px 24px rgba(15,92,110,.16))}
+#s6 h1{margin-bottom:6px}
+/* pílula combinada */
+#s7 .wrap6{width:100%;max-width:1100px;display:grid;grid-template-columns:1fr;gap:28px;align-items:start}
+#s7 .liah7{display:block;width:min(92vw,460px);height:auto;justify-self:center;filter:drop-shadow(0 12px 24px rgba(15,92,110,.16))}
+#s7 h1{margin-bottom:6px}
+/* injetáveis */
+#s8 .wrap6{width:100%;max-width:1100px;display:grid;grid-template-columns:1fr;gap:28px;align-items:start}
+#s8 .liah8{display:block;width:min(92vw,460px);height:auto;justify-self:center;filter:drop-shadow(0 12px 24px rgba(15,92,110,.16))}
+#s8 h1{margin-bottom:6px}
+/* implante */
+#s9 .wrap6{width:100%;max-width:1100px;display:grid;grid-template-columns:1fr;gap:28px;align-items:start}
+#s9 .liah9{display:block;width:min(92vw,460px);height:auto;justify-self:center;filter:drop-shadow(0 12px 24px rgba(15,92,110,.16))}
+#s9 h1{margin-bottom:6px}
+/* diu de cobre */
+#s10 .wrap6{width:100%;max-width:1100px;display:grid;grid-template-columns:1fr;gap:28px;align-items:start}
+#s10 .liah10{display:block;width:min(92vw,460px);height:auto;justify-self:center;filter:drop-shadow(0 12px 24px rgba(15,92,110,.16))}
+#s10 h1{margin-bottom:6px}
+#s10 .x-nometec{font:var(--type-small);color:var(--text-secondary);margin:0 0 12px}
+/* laqueadura */
+#s11 .wrap6{width:100%;max-width:1100px;display:grid;grid-template-columns:1fr;gap:28px;align-items:start}
+#s11 .liah11{display:block;width:min(92vw,460px);height:auto;justify-self:center;filter:drop-shadow(0 12px 24px rgba(15,92,110,.16))}
+#s11 h1{margin-bottom:6px}
+#s11 .tag{display:inline-block;vertical-align:middle;margin-left:10px}
+.infos{display:grid;grid-template-columns:1fr;gap:14px}
+.info{background:#fff;border-radius:18px;padding:20px;box-shadow:0 6px 20px rgba(15,92,110,.08)}
+.info h3{font-size:16px;font-weight:900;color:var(--petroleo);margin-bottom:8px;text-transform:uppercase;letter-spacing:.05em}
+.info p{font-size:clamp(18px,1.3vw,19px);line-height:1.65;color:#3f5258}
+.info.sus{background:var(--azulclaro);border-left:6px solid var(--petroleo)}
+.info.sus p{color:var(--petroleo2)}
+/* extra: pílula de emergência */
+#s12 .x-extra{width:100%;max-width:900px;background:var(--rosaclaro);border:2px solid #f6c9d7;border-radius:28px;padding:28px 22px}
+#s12 .x-extra .tag{display:inline-block;margin-bottom:12px;background:#fff;color:#9c2a50}
+#s12 h1{margin-bottom:6px}
+.x-tags{display:flex;flex-wrap:wrap;gap:8px;justify-content:flex-start;margin:10px 0 18px}
+#s11 .x-tags .tag,#s12 .x-extra .x-tags .tag{display:inline-block;margin:0}
+#s12 .x-tambem{font-size:clamp(18px,1.4vw,20px);font-weight:800;color:var(--petroleo2);line-height:1.4;margin-bottom:4px}
+#s12 .info{box-shadow:none;border:1px solid #f6c9d7}
+#s12 .info b{color:var(--texto)}
+#s12 .info p+p,#s12 .info ul+p{margin-top:10px}
+#s12 .info ul{list-style:none;margin-top:10px;display:flex;flex-direction:column;gap:8px}
+#s12 .info li{font-size:clamp(18px,1.3vw,19px);line-height:1.55;color:#3f5258;padding-left:26px;position:relative}
+#s12 .info li::before{content:'';position:absolute;left:4px;top:.55em;width:10px;height:10px;border-radius:50%;background:var(--rosa)}
+#s12 .info.sus{background:#fff;border:1px solid #f6c9d7;border-left:6px solid var(--rosa2)}
+@media (min-width:821px){#s12 .x-extra{padding:40px 44px}}
+#s12 .liah12{display:block;width:100%;max-width:100%;height:auto;aspect-ratio:3/2;object-fit:cover;border-radius:22px;margin:18px 0 22px;box-shadow:0 12px 30px rgba(15,92,110,.13)}
+/* encerramento */
+#s13 .x-fim{width:100%;max-width:1100px;display:grid;grid-template-columns:1fr;gap:32px;align-items:center}
+#s13 .x-fim-fig{margin:0;display:flex;flex-direction:column;align-items:center;width:100%;max-width:560px;justify-self:center}
+#s13 .x-fim-fig .x-fim-img{max-width:100%}
+#s13 .x-balao{position:relative;background:#fff;border:3px solid #0f5c6e;border-radius:26px;padding:18px 22px 14px;margin:0 0 16px;max-width:92%;box-shadow:0 10px 24px rgba(15,92,110,.15)}
+#s13 .x-balao p{margin:0;font-size:clamp(1rem,0.94rem + 0.3vw,1.12rem);line-height:1.45;font-weight:600;color:#0f3d48;overflow-wrap:break-word;text-wrap:pretty}
+#s13 .x-balao p+p{margin-top:.55em}
+@media (max-width:480px){#s13 .x-balao{max-width:100%;padding:14px 16px 12px;border-radius:22px}}
+#s13 .x-balao-nome{display:block;text-align:right;margin-top:6px;font-weight:700;color:#0f5c6e;font-size:.95rem}
+#s13 .x-balao::after{content:"";position:absolute;left:50%;bottom:-17px;width:28px;height:28px;background:#fff;border-right:3px solid #0f5c6e;border-bottom:3px solid #0f5c6e;transform:translateX(-50%) rotate(45deg);border-bottom-right-radius:6px}
+#s13 .x-fim-img{display:block;width:100%;max-width:560px;height:auto;justify-self:center;border-radius:28px;box-shadow:0 14px 34px rgba(15,92,110,.14)}
+#s13 h1{margin-bottom:6px}
+#s13 .x-fim-txt .lead{margin-bottom:20px}
+#s13 .infos{grid-template-columns:1fr}
+#s13 .info.sus{grid-column:auto}
+#s13 .info ul{list-style:none;display:flex;flex-direction:column;gap:8px}
+#s13 .info li{font-size:clamp(18px,1.3vw,19px);line-height:1.55;color:#3f5258;padding-left:26px;position:relative}
+#s13 .info li::before{content:'';position:absolute;left:4px;top:.55em;width:10px;height:10px;border-radius:50%;background:var(--rosa)}
+#s13 .info.x-lembrete{background:var(--rosaclaro);border-left:6px solid var(--rosa2);box-shadow:none}
+#s13 .info.x-lembrete h3{color:#9c2a50}
+#s13 .info.x-lembrete p{color:#5e2236}
+#s13 .x-quote{margin-top:24px;background:#fff;border-radius:28px 28px 28px 6px;padding:24px 24px 20px;box-shadow:0 14px 34px rgba(15,92,110,.12);border-top:6px solid var(--rosa)}
+#s13 .x-quote p{font-family:'Caveat',cursive;font-weight:700;color:var(--petroleo);font-size:clamp(30px,3.2vw,38px);line-height:1.2}
+#s13 .x-quote cite{display:block;margin-top:10px;font-style:normal;font-weight:900;color:var(--rosa2);font-size:18px}
+@media (min-width:821px){
+ #s13 .x-fim{grid-template-columns:1fr 1fr;gap:4vw;align-items:start}
+ #s13 .x-fim-fig{max-width:none;position:sticky;top:32px}#s13 .x-fim-img{max-width:100%}
+ #s13 .x-quote{padding:28px 32px 24px}
+}
+.x-rodape{background:var(--petroleo2);color:#fff;text-align:center;padding:36px 22px 40px}
+.x-rodape .x-marca{font-weight:900;font-size:clamp(19px,1.5vw,21px);line-height:1.4;margin-bottom:8px}
+.x-rodape p{font-size:17px;line-height:1.6;color:#e8f4f8;max-width:640px;margin:0 auto}
+/* referências */
+#refs .x-refs-wrap{width:100%;max-width:900px}
+#refs h2{font-weight:900;color:var(--petroleo);font-size:clamp(34px,5vw,54px);line-height:1.1;margin-bottom:20px}
+#refs ol{list-style:none;display:flex;flex-direction:column;gap:18px}
+#refs li{font-size:16px;line-height:1.5;color:#3f5258;overflow-wrap:break-word;min-width:0}
+#refs a{color:var(--rosa2);font-weight:800;text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:3px;overflow-wrap:anywhere;border-radius:4px;padding:12px 0;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+#refs a:hover{color:var(--petroleo)}
+#refs a:focus-visible{outline:3px solid var(--petroleo);outline-offset:2px;color:var(--petroleo)}
+@media (max-width:599px){#refs li{font-size:15px}}
+/* fim */
+.topo{position:relative;z-index:1;text-align:center;padding:8px 22px 56px}
+.topo a{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 8px;font-size:17px;font-weight:800;color:var(--petroleo);text-decoration:underline;text-underline-offset:4px}
+/* telas maiores */
+@media (min-width:821px){
+ .screen{padding:88px 5vw}
+ #s1{padding-top:56px}
+ .liacard img{width:auto;height:min(70vh,560px)}
+ #s3.screen{padding:40px 5vw 48px}
+ #s3 .liacard img{width:100%;height:auto;max-height:none}
+ #s4 .wrap4{grid-template-columns:1.1fr .9fr;gap:4vw}
+ #s4 .liah4{order:0;width:auto;height:min(78vh,640px)}
+ #s4 .fala{padding:28px 32px}
+ #s6 .wrap6{grid-template-columns:.8fr 1.2fr;gap:4vw}
+ #s6 .liah6{width:100%;position:sticky;top:32px}
+ #s7 .wrap6{grid-template-columns:1.2fr .8fr;gap:4vw}
+ #s7 .liah7{order:2;width:100%;position:sticky;top:32px}
+ #s8 .wrap6{grid-template-columns:.8fr 1.2fr;gap:4vw}
+ #s8 .liah8{width:100%;position:sticky;top:32px}
+ #s9 .wrap6{grid-template-columns:1.2fr .8fr;gap:4vw}
+ #s9 .liah9{order:2;width:100%;position:sticky;top:32px}
+ #s10 .wrap6{grid-template-columns:.8fr 1.2fr;gap:4vw}
+ #s10 .liah10{width:100%;position:sticky;top:32px}
+ #s11 .wrap6{grid-template-columns:1.2fr .8fr;gap:4vw}
+ #s11 .liah11{order:2;width:100%;position:sticky;top:32px}
+ .infos{grid-template-columns:1fr 1fr}
+ .info.sus{grid-column:1/-1}
+}
+
+.info li{font-size:clamp(18px,1.3vw,19px);line-height:1.55;color:#3f5258;padding-left:26px;position:relative}
+.info li::before{content:'';position:absolute;left:4px;top:.55em;width:10px;height:10px;border-radius:50%;background:var(--rosa)}
+.info ul{margin-top:6px}
+.info b{color:var(--texto)}
+.x-h-metodos{font-family:'Nunito',sans-serif;font-weight:900;color:var(--petroleo);font-size:clamp(32px,3.6vw,48px);line-height:1.15;margin-bottom:18px}
+#s14 .x-box,#s15 .x-box{width:100%;max-width:900px;margin:0 auto;background:#fff;border-radius:28px;padding:32px 24px;box-shadow:0 14px 34px rgba(15,92,110,.10)}
+#s14 .x-box{background:var(--azulclaro);border-left:6px solid var(--petroleo)}
+#s14 h1,#s15 h1{margin-bottom:16px}
+#s14 .lead,#s15 .lead{margin-bottom:14px}
+#s15 .x-destaque{font-weight:800;color:var(--rosa2);margin-top:6px}
+@media (min-width:821px){#s14 .x-box,#s15 .x-box{padding:40px 44px}}
+/* ajustes: cartões dos métodos (#s6–#s12) */
+#s6 .wrap6>*,#s7 .wrap6>*,#s8 .wrap6>*,#s9 .wrap6>*,#s10 .wrap6>*,#s11 .wrap6>*,#s6 .info,#s7 .info,#s8 .info,#s9 .info,#s10 .info,#s11 .info,#s12 .info{min-width:0}
+#s6 h1,#s7 h1,#s8 h1,#s9 h1,#s10 h1,#s11 h1,#s12 h1,#s14 h1,#s15 h1{overflow-wrap:break-word;hyphens:auto;-webkit-hyphens:auto}
+#s6 .info p+p,#s7 .info p+p,#s8 .info p+p,#s9 .info p+p,#s10 .info p+p,#s11 .info p+p{margin-top:10px}
+#s6 .info ul,#s7 .info ul,#s8 .info ul,#s9 .info ul,#s10 .info ul,#s11 .info ul{list-style:none;display:flex;flex-direction:column;gap:8px;margin-top:10px}
+@media (min-width:821px) and (max-width:1099px){#s6 .infos,#s7 .infos,#s8 .infos,#s9 .infos,#s10 .infos,#s11 .infos{grid-template-columns:1fr}}
+
+#s4 .liah4{filter:none;border-radius:28px;box-shadow:0 12px 30px rgba(15,92,110,.13);width:min(80vw,340px);height:auto;object-fit:cover}
+#s4 .wrap4>*{min-width:0}
+#s4 .liah4{max-width:100%;aspect-ratio:2/3;object-position:center top}
+@media (min-width:821px){#s4 .wrap4{grid-template-columns:.85fr 1.15fr} #s4 .liah4{order:-1;width:100%;max-width:440px;height:auto;max-height:none}}
+
+#s6 .liah6{filter:none;border-radius:28px;box-shadow:0 12px 30px rgba(15,92,110,.13);max-width:100%;height:auto;align-self:start;aspect-ratio:3/2;object-fit:cover}
+
+#s7 .liah7{filter:none;border-radius:28px;box-shadow:0 12px 30px rgba(15,92,110,.13);max-width:100%;height:auto;align-self:start;aspect-ratio:3/2;object-fit:cover}
+#s8 .liah8{filter:none;border-radius:28px;box-shadow:0 12px 30px rgba(15,92,110,.13);max-width:100%;height:auto;align-self:start;aspect-ratio:3/2;object-fit:cover}
+#s11 .liah11{filter:none;border-radius:28px;box-shadow:0 12px 30px rgba(15,92,110,.13);max-width:100%;height:auto;align-self:start;aspect-ratio:3/2;object-fit:cover}
+#s9 .liah9{filter:none;border-radius:28px;box-shadow:0 12px 30px rgba(15,92,110,.13);max-width:100%;height:auto;align-self:start;aspect-ratio:3/2;object-fit:cover}
+#s10 .liah10{filter:none;border-radius:28px;box-shadow:0 12px 30px rgba(15,92,110,.13);max-width:100%;height:auto;align-self:start;aspect-ratio:3/2;object-fit:cover}
+/* menu rápido de métodos */
+#escolha{padding-top:36px;padding-bottom:36px}
+#escolha .x-escolha-wrap{width:100%;max-width:760px}
+#escolha h2{font-weight:900;color:var(--petroleo);font-size:clamp(24px,2.4vw,30px);line-height:1.2;margin-bottom:14px}
+.x-escolha{list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(9.5rem,1fr));gap:10px}
+.x-escolha a{display:flex;align-items:center;justify-content:center;text-align:center;min-height:52px;padding:10px 14px;border-radius:999px;background:#fff;border:2px solid var(--petroleo);color:var(--petroleo);font-weight:800;font-size:17px;line-height:1.25;text-decoration:none;box-shadow:0 5px 16px rgba(15,92,110,.07)}
+.x-escolha a:hover{background:var(--azulclaro)}
+.x-escolha a:focus-visible,.x-voltar a:focus-visible{outline:3px solid var(--rosa2);outline-offset:3px}
+.x-escolha li.x-emerg{grid-column:1/-1}
+.x-escolha li.x-emerg a{background:var(--rosaclaro);border:2px dashed var(--rosa2);color:#9c2a50;box-shadow:none}
+/* resumo rápido */
+.x-resumo{display:grid;grid-template-columns:1fr;background:#fff;border-radius:18px;margin:0 0 16px;box-shadow:0 6px 20px rgba(15,92,110,.08);overflow:hidden}
+.x-resumo>div{padding:12px 18px;border-top:1px solid rgba(15,92,110,.1);min-width:0}
+.x-resumo>div:first-child{border-top:0}
+.x-resumo dt{font-size:14px;font-weight:900;letter-spacing:.05em;text-transform:uppercase;color:var(--rosa2);line-height:1.3}
+.x-resumo dd{font-size:17px;font-weight:400;color:var(--texto);line-height:1.5;margin-top:4px;overflow-wrap:break-word}
+#s12 .x-resumo{box-shadow:none;border:1px solid #f6c9d7}
+#s12 .x-resumo>div{border-top-color:#f6c9d7}
+#s12 .x-resumo>div:first-child{border-top:0}
+@media (max-width:599px){.x-resumo dd{font-size:16px}}
+/* blocos de informação (sempre visíveis) */
+.infos{align-items:start}
+.info.x-info{padding:20px}
+.x-info h3{margin:0 0 8px}
+.x-info-body>:first-child{margin-top:0}
+.info.sus p+p{margin-top:10px}
+.info.sus b{color:var(--petroleo)}
+#s12 .info.sus b{color:#9c2a50}
+/* voltar ao menu */
+.x-voltar{margin-top:16px}
+.x-voltar a{display:inline-flex;align-items:center;min-height:44px;padding:0 4px;font-size:17px;font-weight:800;color:var(--petroleo);text-decoration:underline;text-underline-offset:4px}
+/* próximos passos */
+.x-passos{list-style:none;margin-top:0}
+.x-passos .step p{color:#3f5258}
+</style>
+</head>
+<body>
+<div class="stage">
+ <img class="river" src="data:image/jpeg;base64,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" alt="">
+ <section class="screen" id="s1">
+  <img class="logo" src="logo-saber-banner.png" width="1671" height="941" alt="Logo do SABER: Saúde, Autonomia, Bem-estar, Escolha e Reprodução, sobre um rio amazônico ao pôr do sol">
+ </section>
+
+ <section class="screen" id="s2">
+  <div class="wrap">
+   <div>
+    <div class="kicker">Uma plataforma de educação em saúde</div>
+    <h1>Boas-vindas ao SABER!</h1>
+    <p class="lead">Conhecer os métodos contraceptivos é um passo importante para fazer escolhas conscientes sobre sua saúde.</p>
+    <p class="lead">Aqui, você encontra informações claras sobre os métodos disponíveis no SUS, como funcionam, suas vantagens e os cuidados importantes.</p>
+    <p class="lead">Nosso objetivo é ajudar você a chegar à consulta mais informada, preparada para esclarecer suas dúvidas e conversar com a equipe de saúde sobre suas necessidades e preferências.</p>
+    <div class="aviso"><b>Importante:</b> o SABER tem caráter educativo e não substitui uma consulta individualizada com a equipe de enfermagem da sua Unidade Básica de Saúde (UBS). Procure um profissional para receber orientações adequadas à sua realidade.</div>
+   </div>
+  </div>
+ </section>
+
+ <section class="screen" id="s3">
+  <div class="wrap">
+   <div class="liacard">
+    <img class="lia-nova" src="lia-apresentacao-pincel.jpg" width="900" height="1350" alt="Ilustração da Lia, personagem educativa inspirada nas agentes comunitárias de saúde, de colete e chapéu azuis, crachá e prancheta, sorrindo em uma rua do bairro">
+   </div>
+   <div>
+    <div class="script lia-oi">Conheça a <em>Lia</em>!</div>
+        <p class="lead"><strong>Oi! Eu sou a Lia, uma personagem educativa do SABER, inspirada no trabalho das agentes comunitárias de saúde.</strong></p>
+    <p class="lead">Se você tem dúvidas sobre os métodos contraceptivos, saiba que não está sozinha. Nem sempre é fácil encontrar informações claras ou saber o que perguntar durante uma consulta.</p>
+    <p class="lead">Por aqui, vamos conhecer os métodos disponíveis no SUS, entender como funcionam e conversar sobre os cuidados importantes de cada um.</p>
+    <p class="lead"><strong>Vamos começar?</strong></p>
+   </div>
+  </div>
+ </section>
+
+ <section class="screen" id="s4">
+  <div class="wrap4">
+   <div class="txt">
+    <h1 class="x-h-metodos">Conheça os métodos contraceptivos</h1>
+    <div class="fala">
+     <p><strong>Existem diferentes métodos contraceptivos, e cada um funciona de uma maneira.</strong></p>
+     <p>Aqui você vai conhecer os métodos abordados neste material, como funcionam, quais cuidados são importantes e como buscar acesso pelo SUS.</p>
+     <p><strong>Vamos conhecer cada um deles?</strong></p>
+    </div>
+   </div>
+   <img class="liah4" src="lia-metodos-ilustrada.jpg" width="900" height="1350" alt="Ilustração da Lia, Agente Comunitária de Saúde, sorrindo em frente à Unidade Básica de Saúde, cercada por círculos rosa com os métodos contraceptivos: preservativo, pílula, injetável, DIU, implante, laqueadura e pílula de emergência">
+  </div>
+ </section>
+ <section class="screen" id="escolha">
+  <nav class="x-escolha-wrap" aria-labelledby="escolha-titulo">
+   <h2 id="escolha-titulo">Escolha um método</h2>
+   <ul class="x-escolha">
+    <li><a href="#s6">Preservativos</a></li>
+    <li><a href="#s7">Pílulas</a></li>
+    <li><a href="#s8">Injetáveis</a></li>
+    <li><a href="#s9">DIU de cobre</a></li>
+    <li><a href="#s10">Implanon</a></li>
+    <li><a href="#s11">Laqueadura</a></li>
+    <li class="x-emerg"><a href="#s12">Contracepção de emergência</a></li>
+   </ul>
+  </nav>
+ </section>
+ <section class="screen" id="s6">
+  <div class="wrap6">
+   <img class="liah6" src="lia-preservativos-pincel.jpg" width="1200" height="800" alt="Ilustração da Lia no consultório da UBS, mostrando a embalagem de um preservativo masculino e a de um preservativo feminino, com um pote de preservativos sobre a mesa">
+   <div>
+    <h1>Método 1 · Preservativos externo e interno</h1>
+    <div class="x-tags"><span class="tag">Sem hormônios</span><span class="tag">Ajudam a prevenir ISTs</span></div>
+    <dl class="x-resumo" aria-label="Resumo rápido">
+     <div><dt>Frequência de uso</dt><dd>Em todas as relações sexuais.</dd></div>
+     <div><dt>Duração</dt><dd>Uso único a cada relação.</dd></div>
+    </dl>
+    <div class="infos">
+     <div class="info x-info"><h3>O que são?</h3><div class="x-info-body"><p>Os preservativos, também conhecidos como camisinhas, são métodos que ajudam a prevenir a gravidez e reduzem o risco de infecções sexualmente transmissíveis (ISTs), como HIV, sífilis e gonorreia.</p></div></div>
+     <div class="info x-info"><h3>Como funcionam?</h3><div class="x-info-body"><p>Eles formam uma barreira que ajuda a impedir a passagem do sêmen e reduz o contato com secreções que podem transmitir ISTs.</p></div></div>
+     <div class="info x-info"><h3>Como usar?</h3><div class="x-info-body"><p>O preservativo externo é colocado no pênis ereto antes de qualquer contato sexual. O preservativo interno deve ser introduzido na vagina antes da relação.</p><p>Use um preservativo novo em cada relação. Não use os preservativos externo e interno ao mesmo tempo, pois o atrito pode provocar rompimento. Confira a validade e as condições da embalagem e nunca reutilize.</p></div></div>
+     <div class="info x-info"><h3>Quais são as vantagens?</h3><div class="x-info-body"><ul><li>Não contêm hormônios.</li><li>Ajudam a prevenir a gravidez e diversas ISTs.</li><li>Podem ser usados junto com outro método contraceptivo.</li><li>São distribuídos gratuitamente pelo SUS.</li></ul></div></div>
+     <div class="info x-info"><h3>Quais cuidados são importantes?</h3><div class="x-info-body"><p>A proteção depende do uso correto em todas as relações. Se o preservativo romper ou sair durante a relação, pode haver risco de gravidez e exposição a ISTs. Nessa situação, procure orientação de um profissional de saúde sobre contracepção de emergência e prevenção de infecções.</p></div></div>
+     <div class="info sus"><h3>Como conseguir no SUS?</h3><p>Os preservativos externo e interno são distribuídos gratuitamente pelo SUS, sem necessidade de receita.</p><p>Na sua UBS, peça informações à equipe de saúde sobre a retirada. Se algum tipo estiver em falta, pergunte quando estará disponível novamente.</p></div>
+    </div>
+    <p class="x-voltar"><a href="#escolha">↑ Ver outros métodos</a></p>
+   </div>
+  </div>
+ </section>
+ <section class="screen" id="s7">
+  <div class="wrap6">
+   <img class="liah7" src="lia-pilulas-pincel.jpg" width="1200" height="800" alt="Ilustração da Lia à mesa segurando uma cartela de pílulas e um comprimido, com um copo de água e um calendário marcando os dias de uso">
+   <div>
+    <h1>Método 2 · Pílulas anticoncepcionais</h1>
+    <div class="x-tags"><span class="tag">Uso diário</span><span class="tag">Contêm hormônios</span></div>
+    <dl class="x-resumo" aria-label="Resumo rápido">
+     <div><dt>Frequência de uso</dt><dd>Todos os dias, seguindo a cartela e a orientação recebida na consulta.</dd></div>
+     <div><dt>Duração</dt><dd>A proteção depende do uso correto e diário.</dd></div>
+     <div><dt>Proteção contra ISTs</dt><dd>Não. Apenas a camisinha ajuda a prevenir a transmissão de ISTs, como HIV e sífilis.</dd></div>
+    </dl>
+    <div class="infos">
+     <div class="info x-info"><h3>O que são?</h3><div class="x-info-body"><p>São comprimidos usados para evitar a gravidez. Existem pílulas com dois hormônios e outras com apenas um. Por isso, é importante receber orientação para saber qual é a mais indicada para você.</p></div></div>
+     <div class="info x-info"><h3>Como funcionam?</h3><div class="x-info-body"><p>A maioria impede que o ovário libere um óvulo, evitando a gravidez. Alguns tipos também dificultam a passagem dos espermatozoides.</p></div></div>
+     <div class="info x-info"><h3>Como usar?</h3><div class="x-info-body"><p>A pílula deve ser tomada diariamente, seguindo as orientações recebidas na consulta e as instruções da cartela. Alguns tipos têm uma pausa entre uma cartela e outra. Se esquecer de tomar, procure orientação para saber o que fazer, pois isso depende do tipo de pílula e do tempo de atraso.</p></div></div>
+     <div class="info x-info"><h3>Quais são as vantagens?</h3><div class="x-info-body"><ul><li>Não é necessário fazer procedimentos para começar a usar.</li><li>É possível tentar engravidar após parar o uso.</li><li>Algumas pílulas ajudam a diminuir as cólicas e o sangramento menstrual.</li><li>Existem tipos que podem ser usados durante a amamentação, com orientação profissional.</li></ul></div></div>
+     <div class="info x-info"><h3>Quais cuidados são importantes?</h3><div class="x-info-body"><p>A menstruação pode mudar durante o uso. Pode ocorrer sangramento fora da época esperada ou até mesmo ficar sem menstruar.</p><p>Nem toda pílula é indicada para todas as pessoas. A escolha depende das condições de saúde, dos medicamentos utilizados e de situações como a amamentação.</p><p>As pílulas não protegem contra ISTs.</p></div></div>
+     <div class="info sus"><h3>Como conseguir?</h3><p><b>Na UBS:</b> converse com a enfermeira ou o médico para saber qual pílula é mais indicada para você. Depois, a pílula pode ser retirada gratuitamente na farmácia da unidade ou do município.</p><p><b>Pelo Farmácia Popular:</b> algumas pílulas anticoncepcionais são gratuitas em farmácias credenciadas, identificadas pelo selo do programa. Para retirar, leve a receita válida (do SUS ou particular), um documento oficial com foto e o CPF.</p></div>
+    </div>
+    <p class="x-voltar"><a href="#escolha">↑ Ver outros métodos</a></p>
+   </div>
+  </div>
+ </section>
+ <section class="screen" id="s8">
+  <div class="wrap6">
+   <img class="liah8" src="lia-injetaveis-pincel.jpg" width="1200" height="800" alt="Ilustração da Lia no consultório da UBS, com uma bandeja contendo os frascos dos injetáveis mensal e trimestral, duas seringas e algodão">
+   <div>
+    <h1>Método 3 · Injetáveis mensal e trimestral</h1>
+    <div class="x-tags"><span class="tag">Aplicação mensal ou trimestral</span><span class="tag">Contêm hormônios</span></div>
+    <dl class="x-resumo" aria-label="Resumo rápido">
+     <div><dt>Frequência de uso</dt><dd>Uma aplicação por mês ou a cada três meses, conforme o tipo.</dd></div>
+     <div><dt>Duração</dt><dd>Cada aplicação protege por um mês ou três meses, conforme o anticoncepcional utilizado.</dd></div>
+     <div><dt>Proteção contra ISTs</dt><dd>Não. Apenas a camisinha ajuda a prevenir a transmissão de ISTs, como HIV e sífilis.</dd></div>
+    </dl>
+    <div class="infos">
+     <div class="info x-info"><h3>O que são?</h3><div class="x-info-body"><p>São anticoncepcionais hormonais aplicados por injeção. O mensal é aplicado uma vez por mês, e o trimestral, a cada três meses. Eles têm composições diferentes: o mensal geralmente contém dois hormônios, enquanto o trimestral contém apenas um.</p></div></div>
+     <div class="info x-info"><h3>Como funcionam?</h3><div class="x-info-body"><p>Agem principalmente impedindo que o ovário libere um óvulo, evitando a gravidez. O injetável trimestral também dificulta a passagem dos espermatozoides.</p></div></div>
+     <div class="info x-info"><h3>Como usar?</h3><div class="x-info-body"><p>A aplicação deve ser feita nos intervalos indicados pelo profissional de saúde. Anote a data da próxima dose e, se houver atraso, procure orientação na UBS.</p></div></div>
+     <div class="info x-info"><h3>Quais são as vantagens?</h3><div class="x-info-body"><ul><li>Não é necessário tomar comprimidos todos os dias.</li><li>São métodos reversíveis, ou seja, é possível tentar engravidar após interromper o uso.</li><li>O injetável mensal pode ajudar a regular a menstruação em algumas pessoas.</li><li>O trimestral pode diminuir o fluxo menstrual e as cólicas. Algumas pessoas deixam de menstruar durante o uso.</li></ul></div></div>
+     <div class="info x-info"><h3>Quais cuidados são importantes?</h3><div class="x-info-body"><p>Podem ocorrer mudanças na menstruação, dor de cabeça, sensibilidade nas mamas e outros efeitos. O injetável trimestral também pode estar associado a alterações de peso em algumas pessoas.</p><p>O mensal contém estrogênio e pode não ser indicado para quem tem determinadas condições de saúde.</p><p>Após parar o injetável trimestral, a capacidade de engravidar pode demorar alguns meses para retornar. Isso não significa infertilidade permanente.</p></div></div>
+     <div class="info sus"><h3>Como conseguir?</h3><p><b>Na UBS:</b> converse com a enfermeira ou o médico para saber qual injetável é mais indicado para você. A equipe orientará sobre a retirada e a aplicação.</p><p><b>Pelo Farmácia Popular:</b> os injetáveis mensal e trimestral estão entre os anticoncepcionais oferecidos gratuitamente pelo programa. Para retirar, é necessário apresentar receita médica válida, documento oficial com foto e CPF em uma farmácia credenciada.</p><p>A aplicação deve ser realizada por um profissional de saúde habilitado.</p></div>
+    </div>
+    <p class="x-voltar"><a href="#escolha">↑ Ver outros métodos</a></p>
+   </div>
+  </div>
+ </section>
+ <section class="screen" id="s9">
+  <div class="wrap6">
+   <img class="liah9" src="lia-diu-pincel.jpg" width="1200" height="800" alt="Ilustração das mãos da Lia, de colete e crachá ACS, segurando um DIU de cobre em forma de T, mostrando seu tamanho pequeno">
+   <div>
+    <h1>Método 4 · DIU de cobre</h1>
+    <div class="x-tags"><span class="tag">Dura até 10 anos</span><span class="tag">Sem hormônios</span></div>
+    <dl class="x-resumo" aria-label="Resumo rápido">
+     <div><dt>Frequência de uso</dt><dd>É colocado uma vez no útero por um profissional de saúde habilitado.</dd></div>
+     <div><dt>Duração</dt><dd>Até 10 anos, conforme o modelo.</dd></div>
+     <div><dt>Proteção contra ISTs</dt><dd>Não. Apenas a camisinha ajuda a prevenir a transmissão de ISTs, como HIV e sífilis.</dd></div>
+    </dl>
+    <div class="infos">
+     <div class="info x-info"><h3>O que é?</h3><div class="x-info-body"><p>O DIU de cobre é um pequeno dispositivo colocado dentro do útero por um profissional de saúde habilitado. Não contém hormônios e pode prevenir a gravidez por até 10 anos, conforme o modelo.</p></div></div>
+     <div class="info x-info"><h3>Como funciona?</h3><div class="x-info-body"><p>O cobre dificulta a ação dos espermatozoides, reduzindo a possibilidade de fecundação, ou seja, o encontro do espermatozoide com o óvulo.</p></div></div>
+     <div class="info x-info"><h3>Como é colocado?</h3><div class="x-info-body"><p>A colocação é feita em um serviço de saúde por um profissional habilitado. Durante o procedimento, podem ocorrer desconforto e cólicas.</p><p>Se desejar interromper o uso, o DIU pode ser retirado por um profissional de saúde.</p></div></div>
+     <div class="info x-info"><h3>Quais são as vantagens?</h3><div class="x-info-body"><ul><li>Tem alta eficácia na prevenção da gravidez.</li><li>Pode durar vários anos.</li><li>Não contém hormônios.</li><li>Não exige lembrar de tomar comprimidos ou receber aplicações.</li><li>A possibilidade de engravidar costuma retornar rapidamente após a retirada.</li></ul></div></div>
+     <div class="info x-info"><h3>Quais cuidados são importantes?</h3><div class="x-info-body"><p>A menstruação pode ficar mais intensa e as cólicas podem aumentar, principalmente nos primeiros meses. Essas mudanças variam de pessoa para pessoa.</p></div></div>
+     <div class="info sus"><h3>Como conseguir no SUS?</h3><p><b>Na UBS:</b> o DIU de cobre é oferecido gratuitamente pelo SUS. A colocação pode ser feita por médicos e enfermeiros habilitados, conforme a organização do serviço.</p><p>Pergunte na sua UBS se o procedimento é realizado na própria unidade ou para qual serviço você pode ser encaminhada.</p></div>
+    </div>
+    <p class="x-voltar"><a href="#escolha">↑ Ver outros métodos</a></p>
+   </div>
+  </div>
+ </section>
+ <section class="screen" id="s10">
+  <div class="wrap6">
+   <img class="liah10" src="lia-implante-acs.jpg" width="1200" height="800" alt="Ilustração das mãos da Lia, de colete do SUS, segurando a caixa do Implanon e mostrando entre os dedos o implante, um bastão fino e pequeno">
+   <div>
+    <h1>Método 5 · Implanon</h1>
+    <p class="x-nometec">Nome técnico: implante contraceptivo subdérmico</p>
+    <div class="x-tags"><span class="tag">Dura até 3 anos</span><span class="tag">Contém hormônio</span></div>
+    <dl class="x-resumo" aria-label="Resumo rápido">
+     <div><dt>Frequência de uso</dt><dd>É colocado uma vez sob a pele do braço por um profissional de saúde habilitado.</dd></div>
+     <div><dt>Duração</dt><dd>Até 3 anos.</dd></div>
+     <div><dt>Proteção contra ISTs</dt><dd>Não. Apenas a camisinha ajuda a prevenir a transmissão de ISTs, como HIV e sífilis.</dd></div>
+    </dl>
+    <div class="infos">
+     <div class="info x-info"><h3>O que é?</h3><div class="x-info-body"><p>O Implanon é um pequeno bastão flexível colocado sob a pele do braço. Ele libera um hormônio que ajuda a prevenir a gravidez por até três anos.</p></div></div>
+     <div class="info x-info"><h3>Como funciona?</h3><div class="x-info-body"><p>Age principalmente impedindo que o ovário libere um óvulo. Também deixa mais espesso o muco do colo do útero, dificultando a passagem dos espermatozoides.</p></div></div>
+     <div class="info x-info"><h3>Como é colocado?</h3><div class="x-info-body"><p>Um profissional de saúde habilitado aplica anestesia local para colocar o implante sob a pele do braço. A retirada também deve ser feita por um profissional habilitado.</p></div></div>
+     <div class="info x-info"><h3>Quais são as vantagens?</h3><div class="x-info-body"><ul><li>Tem alta eficácia na prevenção da gravidez.</li><li>Pode prevenir a gravidez por até três anos.</li><li>Não exige uso diário.</li><li>É reversível: após a retirada, é possível tentar engravidar.</li><li>A fertilidade costuma retornar rapidamente após a retirada.</li></ul></div></div>
+     <div class="info x-info"><h3>Quais cuidados são importantes?</h3><div class="x-info-body"><p>A menstruação pode ficar irregular, ocorrer com mais ou menos frequência ou até deixar de acontecer. Essas mudanças variam de pessoa para pessoa.</p></div></div>
+     <div class="info sus"><h3>Como conseguir no SUS?</h3><p><b>Na UBS:</b> o implante foi incorporado ao SUS para mulheres de 14 a 49 anos, mas a oferta depende da implantação do serviço em cada município.</p><p>Pergunte na sua UBS se o implante já está disponível e como funciona o agendamento.</p></div>
+    </div>
+    <p class="x-voltar"><a href="#escolha">↑ Ver outros métodos</a></p>
+   </div>
+  </div>
+ </section>
+ <section class="screen" id="s11">
+  <div class="wrap6">
+   <img class="liah11" src="lia-laqueadura-pincel.jpg" width="1200" height="800" alt="Ilustração da Lia, de costas, em consulta na UBS, enquanto a profissional de saúde aponta para a tuba uterina em um desenho do sistema reprodutor feminino">
+   <div>
+    <h1>Método 6 · Laqueadura tubária</h1>
+    <div class="x-tags"><span class="tag irr">Permanente</span><span class="tag">Cirúrgico</span></div>
+    <dl class="x-resumo" aria-label="Resumo rápido">
+     <div><dt>Frequência de uso</dt><dd>Cirurgia realizada uma única vez.</dd></div>
+     <div><dt>Duração</dt><dd>Permanente.</dd></div>
+     <div><dt>Proteção contra ISTs</dt><dd>Não. Apenas a camisinha ajuda a prevenir a transmissão de ISTs, como HIV e sífilis.</dd></div>
+    </dl>
+    <div class="infos">
+     <div class="info x-info"><h3>O que é?</h3><div class="x-info-body"><p>A laqueadura é uma cirurgia feita para evitar a gravidez de forma permanente. Nela, as trompas são bloqueadas ou cortadas, impedindo o encontro do óvulo com os espermatozoides.</p></div></div>
+     <div class="info x-info"><h3>Como funciona?</h3><div class="x-info-body"><p>A cirurgia interrompe a passagem pelas trompas, impedindo que o óvulo encontre os espermatozoides.</p></div></div>
+     <div class="info x-info"><h3>Como é realizada?</h3><div class="x-info-body"><p>A cirurgia é feita por uma equipe de saúde em um hospital. Antes de decidir, a pessoa recebe informações sobre como funciona, os riscos, os benefícios e outras opções para evitar a gravidez.</p></div></div>
+     <div class="info x-info"><h3>Quais são as vantagens?</h3><div class="x-info-body"><ul><li>Tem alta eficácia na prevenção da gravidez.</li><li>Não é necessário tomar anticoncepcionais ou receber aplicações continuamente.</li><li>Não exige cuidados diários para evitar a gravidez.</li></ul></div></div>
+     <div class="info x-info"><h3>Quais cuidados são importantes?</h3><div class="x-info-body"><p>A laqueadura é considerada permanente. A cirurgia para tentar reverter o procedimento não garante que a pessoa consiga engravidar. Por isso, é importante refletir e esclarecer todas as dúvidas antes de decidir.</p></div></div>
+     <div class="info x-info"><h3>Quem pode fazer pelo SUS?</h3><div class="x-info-body"><p>Pela lei brasileira, a esterilização voluntária pode ser solicitada por pessoas com capacidade civil plena que tenham 21 anos ou mais, ou pelo menos dois filhos vivos.</p><p>É necessário registrar a decisão por escrito e aguardar pelo menos 60 dias entre a manifestação da vontade e a cirurgia. Durante esse período, a pessoa recebe orientações sobre o procedimento e outras opções contraceptivas.</p><p>Não é necessária autorização do marido ou companheiro.</p></div></div>
+     <div class="info sus"><h3>Como conseguir no SUS?</h3><p><b>Na UBS:</b> converse com a equipe de saúde e informe que deseja conhecer o procedimento. Você receberá orientações e, se decidir seguir em frente, será encaminhada para o serviço responsável pela cirurgia.</p><p>A laqueadura é oferecida gratuitamente pelo SUS, seguindo os critérios legais.</p></div>
+    </div>
+    <p class="x-voltar"><a href="#escolha">↑ Ver outros métodos</a></p>
+   </div>
+  </div>
+ </section>
+ <section class="screen" id="s12">
+  <div class="x-extra">
+   <span class="tag">Contracepção de emergência</span>
+   <h1>Método 7 · Contracepção de emergência</h1>
+   <div class="x-tags"><span class="tag">Uso em situações de emergência</span><span class="tag">Pílula hormonal</span></div>
+   <dl class="x-resumo" aria-label="Resumo rápido">
+    <div><dt>Frequência de uso</dt><dd>Dose única, conforme a apresentação do medicamento.</dd></div>
+    <div><dt>Prazo para usar</dt><dd>O mais rápido possível após a relação sexual. Pode ser usada em até 5 dias, mas sua eficácia diminui com o passar do tempo.</dd></div>
+    <div><dt>Proteção contra ISTs</dt><dd>Não. Apenas a camisinha ajuda a prevenir a transmissão de ISTs, como HIV e sífilis.</dd></div>
+   </dl>
+   <img class="liah12" src="lia-emergencia-acs.jpg" width="1199" height="800" alt="Ilustração da Lia, de colete do SUS e crachá ACS, pegando na prateleira uma caixa de contraceptivo de emergência, com um preservativo dentro da bolsa">
+   <div class="infos">
+     <div class="info x-info"><h3>O que é?</h3><div class="x-info-body"><p>É uma pílula usada para reduzir o risco de gravidez após uma relação sexual sem proteção ou quando ocorre uma falha, como o rompimento da camisinha.</p></div></div>
+     <div class="info x-info"><h3>Como funciona?</h3><div class="x-info-body"><p>Age principalmente atrasando ou impedindo a liberação do óvulo pelo ovário. Não interrompe uma gravidez já estabelecida.</p></div></div>
+     <div class="info x-info"><h3>Quando usar?</h3><div class="x-info-body"><p>Deve ser tomada o quanto antes após uma relação sexual sem proteção ou uma falha do método contraceptivo. Pode ser usada em até 5 dias (120 horas), mas quanto mais cedo for tomada, melhor.</p></div></div>
+     <div class="info x-info"><h3>Quais são as vantagens?</h3><div class="x-info-body"><ul><li>Ajuda a reduzir o risco de gravidez em situações de emergência.</li><li>É uma opção quando a camisinha rompe ou outro método falha.</li><li>Não causa infertilidade.</li></ul></div></div>
+     <div class="info x-info"><h3>Quais cuidados são importantes?</h3><div class="x-info-body"><p>A pílula de emergência não substitui um método contraceptivo de uso regular e não protege contra relações sexuais que acontecerem depois de tomá-la.</p><p>Pode causar enjoo, dor de cabeça e alterações na menstruação. Se a menstruação atrasar, faça um teste de gravidez ou procure orientação na UBS.</p></div></div>
+     <div class="info sus"><h3>Como conseguir no SUS?</h3><p><b>Na UBS:</b> a pílula de emergência é oferecida gratuitamente pelo SUS. Procure a unidade o quanto antes após a relação sexual, sem esperar a menstruação atrasar.</p></div>
+   </div>
+   <p class="x-voltar"><a href="#escolha">↑ Ver outros métodos</a></p>
+  </div>
+ </section>
+ <section class="screen" id="s14">
+  <div class="x-box x-dupla">
+   <h1>Dupla proteção: prevenir a gravidez e as ISTs</h1>
+   <p class="lead"><strong>A dupla proteção consiste em usar a camisinha junto com outro método contraceptivo.</strong></p>
+   <p class="lead">Por exemplo, você pode tomar a pílula anticoncepcional e usar a camisinha nas relações sexuais.</p>
+   <p class="lead">Essa combinação ajuda a prevenir a gravidez e reduz o risco de infecções sexualmente transmissíveis (ISTs), como HIV e sífilis.</p>
+   <p class="lead">Isso é importante porque métodos como pílulas, injetáveis, DIU, implante, laqueadura e vasectomia não protegem contra ISTs.</p>
+   <p class="lead">A camisinha externa ou interna continua sendo importante para ajudar a prevenir essas infecções.</p>
+  </div>
+ </section>
+ <section class="screen" id="s15">
+  <div class="x-box">
+   <h1>Ficou com dúvidas sobre algum método?</h1>
+   <p class="lead">Na consulta de enfermagem, você pode conversar sobre sua saúde, sua rotina, seus planos de ter ou não ter filhos e suas preferências.</p>
+   <p class="lead">A enfermeira vai ajudar você a conhecer as opções, explicar os benefícios e os possíveis riscos de cada método e orientar sobre o que pode ser mais adequado para você.</p>
+   <p class="lead x-destaque">A escolha do método deve considerar suas necessidades e preferências, com orientação profissional e informações claras.</p>
+  </div>
+ </section>
+ <section class="screen" id="s13">
+  <div class="x-fim">
+   <figure class="x-fim-fig">
+    <div class="x-balao" role="note" aria-label="Fala da Lia"><p>Obrigada por chegar até aqui! Espero ter ajudado você a conhecer melhor os métodos contraceptivos.</p><p>Se ainda tiver dúvidas, converse com a equipe de saúde da sua UBS.</p><span class="x-balao-nome">— Lia</span></div>
+    <img class="x-fim-img" src="lia-final-pincel.jpg" width="1600" height="900" alt="Ilustração da Lia no fim da tarde, numa rua do bairro, com a mão no peito em sinal de gratidão">
+   </figure>
+   <div class="x-fim-txt">
+    <h1>Como buscar orientação na UBS</h1>
+    <ol class="steps x-passos">
+     <li class="step"><span class="num" aria-hidden="true">1</span><div><h4>Agende sua consulta</h4><p>Procure a UBS do seu bairro com um documento com foto e o Cartão SUS. Peça para agendar uma consulta de enfermagem sobre planejamento reprodutivo.</p></div></li>
+     <li class="step"><span class="num" aria-hidden="true">2</span><div><h4>Prepare suas dúvidas</h4><p>Se puder, anote suas perguntas e conte à equipe qual método você usa atualmente. Se deseja trocar de método, converse com um profissional sobre como fazer a mudança sem ficar desprotegida durante a transição.</p></div></li>
+     <li class="step"><span class="num" aria-hidden="true">3</span><div><h4>Se precisar de contracepção de emergência, procure atendimento o quanto antes.</h4><p>Se teve uma relação sexual sem proteção ou houve falha do método, não espere pela consulta agendada. Procure a UBS ou outro serviço público de saúde para receber orientação sobre contracepção de emergência.</p></div></li>
+    </ol>
+   </div>
+  </div>
+ </section>
+ <section class="screen" id="refs">
+  <div class="x-refs-wrap">
+   <h2>Referências</h2>
+   <ol>
+    <li>BRASIL. <a href="https://www.planalto.gov.br/ccivil_03/leis/l9263.htm" target="_blank" rel="noopener">Lei nº 9.263, de 12 de janeiro de 1996</a>. Regula o § 7º do art. 226 da Constituição Federal, que trata do planejamento familiar, estabelece penalidades e dá outras providências. Brasília, DF, 1996.</li>
+    <li>BRASIL. <a href="https://www.planalto.gov.br/ccivil_03/_ato2019-2022/2022/lei/l14443.htm" target="_blank" rel="noopener">Lei nº 14.443, de 2 de setembro de 2022</a>. Altera a Lei nº 9.263, de 12 de janeiro de 1996, para determinar prazo para oferecimento de métodos e técnicas contraceptivas e disciplinar condições para esterilização no âmbito do planejamento familiar. Brasília, DF, 2022.</li>
+    <li>BRASIL. Ministério da Saúde. <a href="https://www.gov.br/saude/pt-br/assuntos/saude-de-a-a-z/s/saude-da-mulher/saude-sexual-e-reprodutiva/contracepcao" target="_blank" rel="noopener">Contracepção</a>. Brasília, DF: Ministério da Saúde, 2025.</li>
+    <li>BRASIL. Ministério da Saúde. <a href="https://platform.who.int/docs/default-source/mca-documents/policy-documents/guideline/BRA-GBV-19-02-GUIDELINE-2014-prt-Protocolo-levonorgestrel.pdf" target="_blank" rel="noopener">Protocolo para utilização do levonorgestrel na anticoncepção hormonal de emergência</a>. Brasília, DF: Ministério da Saúde, 2013.</li>
+    <li>BRASIL. Ministério da Saúde. Secretaria de Ciência, Tecnologia e Inovação e do Complexo Econômico-Industrial da Saúde. <a href="https://www.in.gov.br/web/dou/-/portaria-sectics/ms-n-47-de-8-de-julho-de-2025-640773981" target="_blank" rel="noopener">Portaria SECTICS/MS nº 47, de 8 de julho de 2025</a>. Torna pública a decisão de ampliar o uso, no âmbito do Sistema Único de Saúde - SUS, do implante contraceptivo subdérmico de etonogestrel para mulheres adultas entre 18 e 49 anos. Diário Oficial da União, Brasília, DF, 9 jul. 2025.</li>
+    <li>BRASIL. Ministério da Saúde. Secretaria de Ciência, Tecnologia e Inovação e do Complexo Econômico-Industrial da Saúde. <a href="https://www.in.gov.br/web/dou/-/portaria-sectics/ms-n-48-de-8-de-julho-de-2025-640759041" target="_blank" rel="noopener">Portaria SECTICS/MS nº 48, de 8 de julho de 2025</a>. Torna pública a decisão de incorporar, no âmbito do Sistema Único de Saúde - SUS, o implante contraceptivo subdérmico de etonogestrel para adolescentes de 14 a 17 anos. Diário Oficial da União, Brasília, DF, 9 jul. 2025.</li>
+    <li>BRASIL. Ministério da Saúde. Secretaria de Atenção Primária à Saúde. <a href="https://www.gov.br/saude/pt-br/centrais-de-conteudo/publicacoes/notas-tecnicas/2025/nota-tecnica-no-419-2025-dgci-desco-saps-ms.pdf/view" target="_blank" rel="noopener">Nota Técnica Conjunta nº 419/2025-DGCI/DESCO/SAPS/MS</a>. Disponibilização do Implante Subdérmico Contraceptivo liberador de etonogestrel 68 mg às mulheres de 14 a 49 anos, com oferta prioritária na Atenção Primária à Saúde. Brasília, DF: Ministério da Saúde, 2025.</li>
+    <li>ORGANIZAÇÃO MUNDIAL DA SAÚDE; JOHNS HOPKINS BLOOMBERG SCHOOL OF PUBLIC HEALTH. <a href="https://cdn.who.int/media/docs/default-source/reproductive-health/contraception-family-planning/family-planning-a-global-handbook-for-providers-2022.pdf" target="_blank" rel="noopener">Family planning: a global handbook for providers</a>. 4. ed. Genebra: OMS, 2022.</li>
+   </ol>
+  </div>
+ </section>
+ <p class="topo"><a href="#s1">↑ Voltar ao topo</a></p>
+</div>
+<footer class="x-rodape">
+ <p class="x-marca">SABER — Conhecer para escolher</p>
+ <p>Projeto educativo desenvolvido por estudantes do curso de Enfermagem da Universidade do Estado do Pará (UEPA).</p>
+</footer>
+</body>
+</html>
